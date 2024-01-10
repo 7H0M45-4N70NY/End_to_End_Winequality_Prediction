@@ -1,7 +1,7 @@
 import os
 import urllib.request 
 import zipfile
-from src.mlProject.logger.logger import logger
+from mlProject import logger
 from mlProject.utils.common import get_size
 from mlProject.entity.config_entity import DataIngestionConfig
 from pathlib import Path
