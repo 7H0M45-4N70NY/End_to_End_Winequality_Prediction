@@ -1,7 +1,8 @@
 import os
-from src.mlProject import logger
+from mlProject import logger
 import pandas as pd
-from src.mlProject.entity.config_entity import DataValidationConfig
+from mlProject.entity.config_entity import DataValidationConfig
+
 
 
 class DataValiadtion:
@@ -15,13 +16,12 @@ class DataValiadtion:
 
             data = pd.read_csv(self.config.unzip_data_dir)
             all_cols = list(data.columns)
+
+            all_schema = self.config.all_schema.keys()
+
             
-            all_schema=self.config.all_schema
-            all_schema_colnames = self.config.all_schema.keys()
-            all_schema_type=self.config.all_schema.values()
-        
             for col in all_cols:
-                if col not in all_schema_colnames and data[col].dtype==all_schema[col]:
+                if col not in all_schema:
                     validation_status = False
                     with open(self.config.STATUS_FILE, 'w') as f:
                         f.write(f"Validation status: {validation_status}")

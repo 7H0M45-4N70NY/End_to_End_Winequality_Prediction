@@ -28,6 +28,8 @@ except Exception as e:
         logger.exception(e)
         raise e
      
+logger.info("Trying to see is any change is being updated properly")
+     
 STAGE_NAME="Data Transformation Stage"
 try:
    logger.info(f'>>>> stage {STAGE_NAME} STARTED <<<<<<')
