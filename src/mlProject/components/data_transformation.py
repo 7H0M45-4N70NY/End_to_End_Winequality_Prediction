@@ -34,9 +34,9 @@ class DataTransformation:
         target_column="quality"
         smote=SMOTE(random_state=1)
         X = train.drop(columns=target_column,axis=1)
-        y=train[target_column]
+        y=train[[target_column]]
         smote_X,smote_y=smote.fit_resample(X,y)
-        train_new=pd.concat([smote_X,smote_y])
+        train_new=pd.concat([smote_X,smote_y],axis=1)
         logger.info("oversampling to balance classes")
         logger.info("Oversampled train data shape")
         logger.info(train_new.shape)

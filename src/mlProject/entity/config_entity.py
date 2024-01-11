@@ -28,4 +28,12 @@ class ModelTrainerConfig:
     test_data_path:Path
     model_name:str
     target_column:str
+    n_estimators:float
     
+@dataclass(frozen=True)
+class ModelEvalConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    metric_file_name : Path
+    target_column: str
